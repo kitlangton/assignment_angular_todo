@@ -1,12 +1,16 @@
 toDo.factory('TodoService', function(){
-
-  var _items = [];
+  var _items = [ { text: "task 1", dueDate: new Date(), completed: false },
+      { text: "task 2", dueDate: new Date(), completed: false },
+      { text: "task 3", dueDate: new Date(), completed: false },
+      { text: "task 4", dueDate: new Date(), completed: false },
+      { text: "task 5", dueDate: new Date(), completed: false }
+    ];
 
   var getItems = function() {
     return _items;
   };
 
-  var createToDo = function(newTask, newDueDate) {
+  var createTodo = function(newTask, newDueDate) {
     _items.push({ text: newTask, dueDate: newDueDate, completed: false});
   };
 
