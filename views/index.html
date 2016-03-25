@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html ng-app="toDo">
   <head>
+    <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
   </head>
   <body>
     <div ng-controller="toDoCtrl">
-      <input type="text" placeholder="Task" ng-model="newTask">
-      <input type="date" ng-model="newDueDate">
-      <input type="submit" ng-click="createToDo()" value="Create ToDo">
+      <form>
+        <input type="text" placeholder="Task" ng-model="newTask">
+        <input type="date" ng-model="newDueDate">
+        <input type="submit" ng-click="createToDo()" value="Create ToDo">
+      </form>
+
+      <button ng-click="clearCompleted()">Clear Completed</button>
+      <button ng-click="toggleComplete()">{{toggleStatus}}</button>
 
       <table>
-        <tr ng-repeat="item in items">
-          <td>{{ item.text }}<td>
-          <td>{{ item.dueDate | date }}</td>
-          <td>{{ item.completed }}</td>
+        <tr ng-repeat="item in items" ng-show="!item.completed || item.completed && showCompleted">
+          <td ng-class="item.completed && 'complete'">{{ item.text }}<td>
+              <td ng-class="item.completed && 'complete'">{{ item.dueDate | date }}</td>
+              <td>
+                <input ng-model="item.completed" type="checkbox" name="">
+              </td>
+              <td>
+                <a href="" ng-click="deleteTodo(item)">X</a>
+              </td>
         </tr>
       </table>
     </div>
