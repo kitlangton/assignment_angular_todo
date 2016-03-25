@@ -17,19 +17,12 @@
       <button ng-click="toggleComplete()">{{toggleStatus}}</button>
 
       <table>
-        <tr ng-repeat="item in items" ng-show="!item.completed || item.completed && showCompleted">
-          <td ng-class="item.completed && 'complete'">{{ item.text }}<td>
-              <td ng-class="item.completed && 'complete'">{{ item.dueDate | date }}</td>
-              <td>
-                <input ng-model="item.completed" type="checkbox" name="">
-              </td>
-              <td>
-                <a href="" ng-click="deleteTodo(item)">X</a>
-              </td>
+        <tr todo-item ng-repeat="item in items" ng-show="!item.completed || item.completed && showCompleted" item="item" delete-todo="deleteTodo(item)">
         </tr>
       </table>
     </div>
     <script src="../js/app.js"></script>
     <script src="../js/controllers/toDoController.js"></script>
+    <script src="../js/directives/todoItem.js"></script>
   </body>
 </html>

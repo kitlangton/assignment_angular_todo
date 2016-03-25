@@ -18,11 +18,11 @@ toDo.controller('toDoCtrl',
     $scope.newDueDate = new Date();
 
     $scope.showCompleted = true;
-    $scope.toggleStatus = "Hide Completed"
+    $scope.toggleStatus = "Hide Completed";
 
     $scope.toggleComplete = function() {
       $scope.showCompleted = !$scope.showCompleted;
-      $scope.toggleStatus = $scope.showCompleted ? "Hide Completed" : "Show Completed"
+      $scope.toggleStatus = $scope.showCompleted ? "Hide Completed" : "Show Completed";
     };
 
     $scope.createToDo = function() {
@@ -33,13 +33,13 @@ toDo.controller('toDoCtrl',
 
     $scope.deleteTodo = function(todo) {
       $scope.items.splice($scope.items.indexOf(todo), 1);
-    }
+    };
 
     $scope.clearCompleted = function() {
       $scope.items = $scope.items.filter(function(item) {
-        return !item.completed
-      })
-    }
+        return !item.completed;
+      });
+    };
 
 
   }
