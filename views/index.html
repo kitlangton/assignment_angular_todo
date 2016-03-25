@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="toDo">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
   </head>
   <body>
-  
-    <script src="../app/app.js"></script>
+    <div ng-controller="toDoCtrl">
+      <input type="text" placeholder="Task" ng-model="newTask">
+      <input type="date" ng-model="newDueDate">
+      <input type="submit" ng-click="createToDo()" value="Create ToDo">
+
+      <table>
+        <tr ng-repeat="item in items">
+          <td>{{ item.text }}<td>
+          <td>{{ item.dueDate | date }}</td>
+          <td>{{ item.completed }}</td>
+        </tr>
+      </table>
+    </div>
+    <script src="../js/app.js"></script>
+    <script src="../js/controllers/toDoController.js"></script>
   </body>
 </html>
